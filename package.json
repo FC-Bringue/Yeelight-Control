@@ -1,0 +1,81 @@
+{
+  "name": "moze_yeelight_control",
+  "version": "1.0.0",
+  "description": "The yeelight control plugin for mozeapp",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "build": "cd client && npm install && npm run build",
+    "winBuild": "cd client && npm install && npm run winBuild",
+    "test-prod": "cd client && npm install && npm run build && cd .. && node server/index.js",
+    "electronDev": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "author": "Dest.Com - MozeStaff",
+  "license": "ISC",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.17.2",
+    "helmet": "^5.0.2",
+    "yeelight-node": "^1.1.6"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.64",
+    "@electron-forge/maker-deb": "^6.0.0-beta.64",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.64",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.64",
+    "@electron-forge/maker-zip": "^6.0.0-beta.64",
+    "electron": "^19.0.6"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "appId": "com.moze.yeeligtcontrol",
+        "name": "Moze Yeelight Control",
+        "icon": "./logo.ico",
+        "executableName": "Moze Yeelight Control"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "MozeYeelightControl",
+            "setupExe": "MozeYeelightControl.exe",
+            "icon": "./logo.ico",
+            "iconUrl": "https://destroykeaum.alwaysdata.net/assets/logo.ico",
+            "setupIcon": "./logo.ico",
+            "loadingGif": "./logo.gif",
+            "noMsi": true
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ],
+          "config": {
+            "name": "MozeYeelightControl",
+            "icon": "./logo.png"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "MozeYeelightControl",
+            "icon": "./logo.png"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {
+            "name": "MozeYeelightControl",
+            "icon": "./logo.png"
+          }
+        }
+      ]
+    }
+  }
+}
