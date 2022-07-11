@@ -4,13 +4,16 @@
   "description": "The yeelight control plugin for mozeapp",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "cd client && npm install && npm run build && cd .. && electron-forge start",
+    "winStart": "cd client && npm install && npm run winBuild && cd .. && electron-forge start",
     "build": "cd client && npm install && npm run build",
     "winBuild": "cd client && npm install && npm run winBuild",
     "test-prod": "cd client && npm install && npm run build && cd .. && node server/index.js",
     "electronDev": "electron .",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "cd client && npm install && npm run build && cd .. && electron-forge package",
+    "winPackage": "cd client && npm install && npm run winBuild && cd .. && electron-forge package",
+    "make": "cd client && npm install && npm run build && cd .. && electron-forge make",
+    "winMake": "cd client && npm install && npm run winBuild && cd .. && electron-forge make"
   },
   "author": "Dest.Com - MozeStaff",
   "license": "ISC",
